@@ -101,3 +101,103 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the TravelwithDENCHE backend API comprehensively including authentication, trips, bookings, admin dashboard, and payment mock system"
+
+backend:
+  - task: "Core Authentication System"
+    implemented: true
+    working: "NA"
+    file: "app/api/[[...path]]/route.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test demo auth login as admin/user, auth/me endpoint, and logout functionality"
+
+  - task: "Trips API"
+    implemented: true
+    working: "NA"
+    file: "app/api/[[...path]]/route.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test GET /api/trips, GET /api/trips/alps-hiking-escape, and admin trip creation"
+
+  - task: "Bookings System"
+    implemented: true
+    working: "NA"
+    file: "app/api/[[...path]]/route.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test booking creation for free RSVP and paid departures, GET /api/bookings, and spots_left decrements"
+
+  - task: "Admin Dashboard"
+    implemented: true
+    working: "NA"
+    file: "app/api/[[...path]]/route.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test GET /api/admin/dashboard for stats and GET /api/admin/trips"
+
+  - task: "Payment Mock System"
+    implemented: true
+    working: "NA"
+    file: "lib/payments.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test mock payment webhook processing and booking status updates"
+
+  - task: "Database Validation"
+    implemented: true
+    working: "NA"
+    file: "scripts/seed.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to verify seeded data exists and RLS-style access control works"
+
+frontend:
+  # Frontend testing not required for this task
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Core Authentication System"
+    - "Trips API"
+    - "Bookings System"
+    - "Admin Dashboard"
+    - "Payment Mock System"
+    - "Database Validation"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "testing"
+      message: "Starting comprehensive backend API testing for TravelwithDENCHE. Will test authentication, trips, bookings, admin dashboard, payments, and database validation."
